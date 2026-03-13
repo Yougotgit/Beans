@@ -3,7 +3,7 @@
 <img src="bean.jpeg" width="300">
 
 <p>Clicks: <span id="count">0</span></p>
-<button onclick="add()">Add Click</button>
+<button onclick="add()">Add Beans</button>
 
 <script>
 let count = 0;
@@ -11,5 +11,9 @@ let count = 0;
 function add(){
  count++;
  document.getElementById("count").innerText = count + " Beans"
+
+if count == 100
+ then
+ add()
 }
 </script>
