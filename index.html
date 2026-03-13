@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Beans</title>
-</head>
+<h1 id="title">My BEANS Website</h1>
 
-<body>
-  <h1>Hello internet!</h1>
-  <p>This is my website hosted on GitHub Pages. And Subscribe to @theonlyfirstchicken</p>
-</body>
+<button onclick="changeText()">Click me for Beans</button>
 
-</html>
+<p>Clicks: <span id="count">0</span></p>
+<button onclick="add()">Add Click</button>
+
+<script>
+function changeText(){
+ document.getElementById("title").innerText = "You clicked!";
+}
+
+let count = 0;
+
+function add(){
+ count++;
+ document.getElementById("count").innerText = count + "Beans"
+}
+</script>
