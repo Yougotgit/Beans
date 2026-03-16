@@ -1,20 +1,78 @@
-<h1 id="title">My BEANS Website</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bean Clicker</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f4f1ea;
+}
 
-<img src="bean.jpeg" width="300">
+h1{
+    margin-top: 40px;
+}
 
-<p>Clicks: <span id="count">0</span></p>
-<button onclick="add()">Add Beans</button>
+#bean{
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#bean:active{
+    transform: scale(0.9);
+}
+
+#counter{
+    font-size: 30px;
+    margin: 20px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<h1>🫘 Bean Clicker</h1>
+
+<div id="counter">Beans: 0</div>
+
+<div id="bean">🫘</div>
+
+<button onclick="buyAuto()">Buy Auto Bean (10)</button>
 
 <script>
-let count = 0;
+let beans = 0;
+let auto = 0;
 
-function add(){
- count++;
- document.getElementById("count").innerText = count + " Beans"
+const counter = document.getElementById("counter");
 
-if count == 100
- then
-<p>Clicks: <span id="count">0</span></p>
-<button onclick="add()">Add Beans</button>
+function update(){
+    counter.innerText = "Beans: " + beans;
 }
+
+document.getElementById("bean").onclick = () => {
+    beans++;
+    update();
+};
+
+function buyAuto(){
+    if(beans >= 10){
+        beans -= 10;
+        auto++;
+        update();
+    }
+}
+
+setInterval(()=>{
+    beans += auto;
+    update();
+},1000);
 </script>
+
+</body>
+</html>
